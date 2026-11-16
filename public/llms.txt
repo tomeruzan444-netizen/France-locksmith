@@ -1,0 +1,41 @@
+# Serrurier en français
+
+> Serruriers francophones qui interviennent partout aux États-Unis, 24 h/24 : ouverture de porte, serrures, clés de voiture, commerces et coffres-forts. Tout le site est en français.
+
+## Maison et appartement
+- [Ouverture de porte de maison](https://france-locksmith.vercel.app/ouverture-porte-maison/): Porte claquée ou clés oubliées à l'intérieur ? Nous ouvrons votre porte de maison ou d'appartement en français, sans abîmer la serrure le plus souvent.
+- [Changement de serrure](https://france-locksmith.vercel.app/changement-serrure/): Serrure usée, grippée ou trop faible ? Nous changeons votre serrure de porte d'entrée avec un modèle adapté à votre porte, posé et réglé pour fermer sans forcer.
+- [Rekey de serrure](https://france-locksmith.vercel.app/rekey-serrure/): Le rekey change les goupilles de votre cylindre : les anciennes clés ne marchent plus, la serrure reste. Nous le faisons sur place, en français.
+- [Reproduction de clés](https://france-locksmith.vercel.app/reproduction-cle/): Besoin d'un double de clé qui fonctionne vraiment ? Nous reproduisons clés de maison, de boîte aux lettres et clés protégées, avec une coupe précise et testée.
+- [Installation de pêne dormant](https://france-locksmith.vercel.app/installation-pene-dormant/): Nous installons ou remplaçons votre pêne dormant (deadbolt), simple ou double cylindre, avec une gâche renforcée qui résiste vraiment aux coups de pied.
+- [Serrure connectée](https://france-locksmith.vercel.app/serrure-connectee/): Nous installons et configurons votre serrure connectée (August, Schlage Encode, Yale, Level) sur votre porte, en français, et on vous aide à choisir le bon modèle.
+- [Serrure à code](https://france-locksmith.vercel.app/serrure-a-code/): Fini les clés oubliées. Nous posons votre serrure à code ou à clavier électronique sur porte d'entrée, garage ou porte de service, avec un vrai pêne dormant.
+- [Réparation de serrure](https://france-locksmith.vercel.app/reparation-serrure/): Clé qui force, pêne qui coince, poignée qui pend ? Nous réparons votre serrure sur place, et on vous dit franchement quand il vaut mieux la changer.
+- [Extraction de clé cassée](https://france-locksmith.vercel.app/extraction-cle-cassee/): Clé cassée dans la serrure ? Nous retirons le morceau coincé avec des outils d'extraction, le plus souvent sans percer, et on refait une clé neuve.
+- [Serrure de porte coulissante](https://france-locksmith.vercel.app/serrure-porte-coulissante/): Porte-fenêtre coulissante qui ferme mal ou se soulève ? Nous réparons le loquet, ajoutons un verrou à clé et bloquons le rail contre le soulèvement.
+- [Serrure de fenêtre](https://france-locksmith.vercel.app/serrure-fenetre/): Loquet de fenêtre cassé ou fenêtre qui ferme mal ? Nous réparons et posons des serrures de fenêtre, en gardant une sortie de secours dans les chambres.
+- [Serrure de boîte aux lettres](https://france-locksmith.vercel.app/serrure-boite-aux-lettres/): Clé de boîte aux lettres perdue ou serrure forcée ? Nous changeons la serrure de votre boîte individuelle ou d'immeuble en une quinzaine de minutes.
+- [Serrures à l'emménagement](https://france-locksmith.vercel.app/changement-serrures-emmenagement/): Vous venez d'acheter ou de louer ? Nous changeons ou rekeyons toutes vos serrures en une visite, pour que plus personne n'ait de clé de chez vous, sauf vous.
+- [Sécurisation après effraction](https://france-locksmith.vercel.app/securisation-apres-cambriolage/): Porte forcée ou serrure arrachée après une effraction ? Nous sécurisons votre logement le jour même, réparons le cadre et remplaçons les serrures, en français.
+- [Serrure haute sécurité](https://france-locksmith.vercel.app/serrure-haute-securite/): Nous posons des serrures haute sécurité résistantes au crochetage, au perçage et à la copie de clé (Medeco, Mul-T-Lock, Abloy), pour maison, appartement ou commerce.
+
+## Voiture
+- [Ouverture de voiture](https://france-locksmith.vercel.app/ouverture-voiture/): Clés enfermées dans la voiture ? Nous ouvrons votre véhicule sans rayer la carrosserie ni abîmer les joints, avec des outils adaptés à chaque marque.
+- [Remplacement de clé de voiture](https://france-locksmith.vercel.app/remplacement-cle-voiture/): Toutes vos clés de voiture perdues ? Nous fabriquons et programmons une clé neuve sur place, souvent moins cher et plus vite qu'au concessionnaire, sans remorquage.
+- [Programmation de clé à puce](https://france-locksmith.vercel.app/programmation-cle-transpondeur/): Votre voiture ne démarre pas avec une clé neuve ou un double ? Nous programmons les clés à transpondeur (puce antidémarrage) pour la plupart des marques, sur place.
+- [Télécommande de voiture](https://france-locksmith.vercel.app/telecommande-voiture/): Télécommande de voiture (key fob) perdue, cassée ou muette ? Nous la remplaçons et la programmons, et parfois une simple pile neuve suffit.
+- [Réparation de contacteur](https://france-locksmith.vercel.app/reparation-contacteur-demarrage/): Clé bloquée dans le contacteur ou qui ne tourne plus ? Nous réparons ou remplaçons le barillet de démarrage sur place, souvent sans remorquage.
+- [Ouverture de coffre de voiture](https://france-locksmith.vercel.app/ouverture-coffre-voiture/): Clés enfermées dans le coffre ou hayon bloqué ? Nous ouvrons le coffre de votre berline, SUV ou pick-up sans casse, en passant par l'habitacle.
+
+## Commerces et bureaux
+- [Ouverture de local commercial](https://france-locksmith.vercel.app/ouverture-local-commercial/): Votre commerce ou votre bureau ne s'ouvre plus ? Nous ouvrons portes vitrées, portes en acier et rideaux métalliques, tôt le matin comme la nuit.
+- [Réparation de porte commerciale](https://france-locksmith.vercel.app/reparation-porte-commerciale/): Porte de magasin qui traîne, frotte ou ne ferme plus ? Nous réparons portes vitrées en aluminium et portes en acier : pivots, serrures, ferme-portes et alignement.
+- [Ferme-porte](https://france-locksmith.vercel.app/ferme-porte/): Porte qui claque ou qui ne se referme plus ? Nous réglons et remplaçons les ferme-portes hydrauliques (LCN, Norton, Dorma) des commerces et bureaux.
+- [Barre antipanique](https://france-locksmith.vercel.app/barre-antipanique/): Nous installons et réparons les barres antipanique (Von Duprin, Sargent, Detex) sur portes de sortie, conformes aux codes incendie et bien verrouillées.
+- [Contrôle d'accès](https://france-locksmith.vercel.app/controle-acces/): Contrôle d'accès par badge, code ou téléphone pour bureaux, commerces et immeubles : un départ, un badge désactivé, et aucune serrure à changer.
+- [Système passe-partout](https://france-locksmith.vercel.app/systeme-passe-partout/): Une clé pour le gérant qui ouvre tout, une clé par employé qui ouvre seulement sa zone. Nous concevons et installons votre système passe-partout (master key).
+
+## Coffres-forts et urgences
+- [Ouverture de coffre-fort](https://france-locksmith.vercel.app/ouverture-coffre-fort/): Combinaison oubliée, clavier en panne, clé perdue ? Nous ouvrons votre coffre-fort sans casse quand c'est possible, sinon par un perçage réparable.
+- [Installation de coffre-fort](https://france-locksmith.vercel.app/installation-coffre-fort/): Un coffre non fixé part avec le cambrioleur. Nous vous aidons à choisir votre coffre-fort, puis nous l'ancrons solidement au sol ou au mur.
+- [Serrurier d'urgence 24 h/24](https://france-locksmith.vercel.app/serrurier-urgence/): Bloqué dehors la nuit, porte forcée, clé cassée ? Nous sommes des serruriers francophones qui interviennent en urgence 24 h/24 et 7 j/7 partout aux États-Unis.
