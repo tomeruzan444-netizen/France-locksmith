@@ -18,6 +18,7 @@ CONFIG = {
     "email": "huarenkaisuo@gmail.com",
     "address": "",          # 刻意留空：網站不顯示實體地址
     "site_url": "https://huarenkaisuo.com",
+    "google_verification": "S1JULRL4brwBCXUiI4YZrvPy853_5z00UDD4ziCooNc",  # Google Search Console
     "indexable": True,      # True = 開放搜尋引擎與AI爬蟲索引；False = noindex 封鎖
 }
 BRAND = CONFIG["site_name"] or "中文鎖匠"
@@ -134,6 +135,7 @@ def head(title, desc, path, schema, noindex=False):
     url = abs_url(path)
     schema = [business_ld()] + schema
     ld = "".join(f'<script type="application/ld+json">{json.dumps(s, ensure_ascii=False)}</script>' for s in schema)
+    gsv = f'\n<meta name="google-site-verification" content="{esc(CONFIG["google_verification"])}" />' if CONFIG.get("google_verification") else ""
     robots = "noindex,nofollow" if (noindex or not CONFIG["indexable"]) else "index,follow,max-image-preview:large,max-snippet:-1"
     return f'''<!doctype html>
 <html lang="{LANG}">
@@ -145,7 +147,7 @@ def head(title, desc, path, schema, noindex=False):
 <link rel="canonical" href="{url}">
 <link rel="alternate" hreflang="zh-Hant-US" href="{url}">
 <link rel="alternate" hreflang="x-default" href="{url}">
-<meta name="robots" content="{robots}">
+<meta name="robots" content="{robots}">{gsv}
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:site_name" content="{esc(BRAND)}">
