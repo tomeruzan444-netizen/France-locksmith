@@ -12,8 +12,8 @@ from icons import ICONS
 # ---------------------------------------------------------------------------
 CONFIG = {
     "site_name": "",        # 網站名稱
-    "phone": "(212) 539-0164",            # 顯示用
-    "phone_href": "+12125390164",
+    "phone": "(844) 761-8532",            # 顯示用
+    "phone_href": "+18447618532",
     "wechat": "",           # 微信號
     "email": "huarenkaisuo@gmail.com",
     "address": "",          # 刻意留空：網站不顯示實體地址
