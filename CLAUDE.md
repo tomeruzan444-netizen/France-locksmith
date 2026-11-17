@@ -77,7 +77,7 @@
 
 - HTML/CSS טהור. תוכן: `content/pages/*.md` (YAML front matter + Markdown). `python3 build.py` מייצר את `public/`, ש-Vercel מפרסם.
 - שדות front matter: `url`, `type` (service / blog / page), `icon`, `category` (בשירותים), `name`, `title`, `description`, `h1`, `kicker`, `lead`, `keyword`, `aka`, `quick`, `steps`, `faq`, `priority`.
-- בלי JavaScript, בלי ספריות. גרפיקה = SVG inline. פונט Fraunces רק לספרות ולאותיות לטיניות, הסינית בפונט המערכת (PingFang TC / Noto Sans TC / Microsoft JhengHei).
+- בלי JavaScript, בלי ספריות. חריג יחיד: סקריפט הצ'אט של Tawk.to ב-footer() ב-`build.py` (נוסף לבקשת תומר). גרפיקה = SVG inline. פונט Fraunces רק לספרות ולאותיות לטיניות, הסינית בפונט המערכת (PingFang TC / Noto Sans TC / Microsoft JhengHei).
 - CONFIG בראש `build.py`: שם, טלפון, WeChat, אימייל, כתובת, דומיין. ריקים = לא מוצגים.
 - `indexable`: כרגע `True` = האתר פתוח לאינדוקס, ו-robots.txt מתיר במפורש את Googlebot, Bingbot ובוטי ה-AI (GPTBot, ClaudeBot, PerplexityBot, Google-Extended ועוד). `False` = חסימה (meta noindex + X-Robots-Tag).
 - דומיין ראשי: huarenkaisuo.com (www מפנה אליו). france-locksmith.vercel.app מפנה 308 לדומיין דרך vercel.json.

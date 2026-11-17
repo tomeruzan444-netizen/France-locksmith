@@ -211,6 +211,19 @@ def footer():
 <div class="fcols">{cols}</div>
 </div><div class="wrap fbot"><span>{esc(BRAND)}</span><span class="flinks"><a href="/pricing/">收費標準</a><a href="/blog/">開鎖知識</a><a href="/faq/">常見問題</a><a href="/about/">關於我們</a><a href="/contact/">聯繫我們</a></span></div></footer>
 <nav class="mbar" aria-label="快速聯繫">{phone_cta("btn btn-rust")}</nav>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{{}}, Tawk_LoadStart=new Date();
+(function(){{
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/67189f2a4304e3196ad650c1/1ias2rfo5';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+}})();
+</script>
+<!--End of Tawk.to Script-->
 </body></html>'''
 
 
