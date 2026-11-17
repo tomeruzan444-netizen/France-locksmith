@@ -1,41 +1,45 @@
-# Serrurier en français
+# 中文鎖匠
 
-> Serruriers francophones qui interviennent partout aux États-Unis, 24 h/24 : ouverture de porte, serrures, clés de voiture, commerces et coffres-forts. Tout le site est en français.
+> 在美國服務華人的鎖匠，國語、粵語都能溝通，24小時上門：住宅開鎖、換鎖、換鎖芯、智能門鎖、汽車開鎖、配車鑰匙、保險箱開鎖、商業換鎖。網站內容為繁體中文。
 
-## Maison et appartement
-- [Ouverture de porte de maison](https://france-locksmith.vercel.app/ouverture-porte-maison/): Porte claquée ou clés oubliées à l'intérieur ? Nous ouvrons votre porte de maison ou d'appartement en français, sans abîmer la serrure le plus souvent.
-- [Changement de serrure](https://france-locksmith.vercel.app/changement-serrure/): Serrure usée, grippée ou trop faible ? Nous changeons votre serrure de porte d'entrée avec un modèle adapté à votre porte, posé et réglé pour fermer sans forcer.
-- [Rekey de serrure](https://france-locksmith.vercel.app/rekey-serrure/): Le rekey change les goupilles de votre cylindre : les anciennes clés ne marchent plus, la serrure reste. Nous le faisons sur place, en français.
-- [Reproduction de clés](https://france-locksmith.vercel.app/reproduction-cle/): Besoin d'un double de clé qui fonctionne vraiment ? Nous reproduisons clés de maison, de boîte aux lettres et clés protégées, avec une coupe précise et testée.
-- [Installation de pêne dormant](https://france-locksmith.vercel.app/installation-pene-dormant/): Nous installons ou remplaçons votre pêne dormant (deadbolt), simple ou double cylindre, avec une gâche renforcée qui résiste vraiment aux coups de pied.
-- [Serrure connectée](https://france-locksmith.vercel.app/serrure-connectee/): Nous installons et configurons votre serrure connectée (August, Schlage Encode, Yale, Level) sur votre porte, en français, et on vous aide à choisir le bon modèle.
-- [Serrure à code](https://france-locksmith.vercel.app/serrure-a-code/): Fini les clés oubliées. Nous posons votre serrure à code ou à clavier électronique sur porte d'entrée, garage ou porte de service, avec un vrai pêne dormant.
-- [Réparation de serrure](https://france-locksmith.vercel.app/reparation-serrure/): Clé qui force, pêne qui coince, poignée qui pend ? Nous réparons votre serrure sur place, et on vous dit franchement quand il vaut mieux la changer.
-- [Extraction de clé cassée](https://france-locksmith.vercel.app/extraction-cle-cassee/): Clé cassée dans la serrure ? Nous retirons le morceau coincé avec des outils d'extraction, le plus souvent sans percer, et on refait une clé neuve.
-- [Serrure de porte coulissante](https://france-locksmith.vercel.app/serrure-porte-coulissante/): Porte-fenêtre coulissante qui ferme mal ou se soulève ? Nous réparons le loquet, ajoutons un verrou à clé et bloquons le rail contre le soulèvement.
-- [Serrure de fenêtre](https://france-locksmith.vercel.app/serrure-fenetre/): Loquet de fenêtre cassé ou fenêtre qui ferme mal ? Nous réparons et posons des serrures de fenêtre, en gardant une sortie de secours dans les chambres.
-- [Serrure de boîte aux lettres](https://france-locksmith.vercel.app/serrure-boite-aux-lettres/): Clé de boîte aux lettres perdue ou serrure forcée ? Nous changeons la serrure de votre boîte individuelle ou d'immeuble en une quinzaine de minutes.
-- [Serrures à l'emménagement](https://france-locksmith.vercel.app/changement-serrures-emmenagement/): Vous venez d'acheter ou de louer ? Nous changeons ou rekeyons toutes vos serrures en une visite, pour que plus personne n'ait de clé de chez vous, sauf vous.
-- [Sécurisation après effraction](https://france-locksmith.vercel.app/securisation-apres-cambriolage/): Porte forcée ou serrure arrachée après une effraction ? Nous sécurisons votre logement le jour même, réparons le cadre et remplaçons les serrures, en français.
-- [Serrure haute sécurité](https://france-locksmith.vercel.app/serrure-haute-securite/): Nous posons des serrures haute sécurité résistantes au crochetage, au perçage et à la copie de clé (Medeco, Mul-T-Lock, Abloy), pour maison, appartement ou commerce.
+## 住宅門鎖
+- [住宅開鎖 - 被鎖在門外怎麼辦](https://france-locksmith.vercel.app/services/house-lockout/): 門關上了、鑰匙在屋裡？我們上門住宅開鎖，大多數情況不用破壞門鎖，核對身分後就開，國語粵語都可以溝通。
+- [換鎖服務](https://france-locksmith.vercel.app/services/lock-change/): 門鎖舊了、卡了或想換更安全的鎖？我們上門換鎖，依照您的門挑選合適的鎖並調整好，國語粵語服務，先報價再動手。
+- [換鎖芯服務](https://france-locksmith.vercel.app/services/rekey/): 換鎖芯就是更換鎖芯裡的彈子，讓舊鑰匙打不開，門鎖本身不用換。搬家、鑰匙遺失都適用，我們上門處理，國語粵語服務。
+- [門鎖安裝與維修](https://france-locksmith.vercel.app/services/door-locks/): 門鎖卡住、鑰匙轉不動、把手鬆了？我們上門修門鎖，也幫您安裝大門鎖、防盜門鎖和輔助鎖，能修好的就不換新。
+- [智能門鎖安裝](https://france-locksmith.vercel.app/services/smart-lock-installation/): 我們上門安裝智能門鎖和指紋鎖（Schlage Encode、Yale、August、Level），先調好門再裝，App設定用中文教您。
+- [電子鎖安裝](https://france-locksmith.vercel.app/services/electronic-locks/): 電子門鎖不用App也能用：密碼、感應卡、指紋。我們上門安裝和維修電子鎖，幫您選適合的款式，國語粵語溝通。
+- [密碼鎖安裝與開鎖](https://france-locksmith.vercel.app/services/keypad-locks/): 想裝密碼鎖，或是忘了密碼打不開？我們上門安裝大門密碼鎖，也處理密碼門鎖忘記密碼的開鎖與重設，國語粵語服務。
+- [配鑰匙服務](https://france-locksmith.vercel.app/services/key-duplication/): 在美國配鑰匙總是不好轉？我們用原廠鑰匙或齒碼精準複製住家、信箱、辦公室鑰匙，現場試過才交給您，國語粵語服務。
+- [信箱鎖更換](https://france-locksmith.vercel.app/services/mailbox-lock/): 信箱鑰匙丟了或信箱鎖被撬？我們上門更換獨立信箱和公寓信箱的鎖，也告訴您哪些信箱要找郵局（USPS）處理。
 
-## Voiture
-- [Ouverture de voiture](https://france-locksmith.vercel.app/ouverture-voiture/): Clés enfermées dans la voiture ? Nous ouvrons votre véhicule sans rayer la carrosserie ni abîmer les joints, avec des outils adaptés à chaque marque.
-- [Remplacement de clé de voiture](https://france-locksmith.vercel.app/remplacement-cle-voiture/): Toutes vos clés de voiture perdues ? Nous fabriquons et programmons une clé neuve sur place, souvent moins cher et plus vite qu'au concessionnaire, sans remorquage.
-- [Programmation de clé à puce](https://france-locksmith.vercel.app/programmation-cle-transpondeur/): Votre voiture ne démarre pas avec une clé neuve ou un double ? Nous programmons les clés à transpondeur (puce antidémarrage) pour la plupart des marques, sur place.
-- [Télécommande de voiture](https://france-locksmith.vercel.app/telecommande-voiture/): Télécommande de voiture (key fob) perdue, cassée ou muette ? Nous la remplaçons et la programmons, et parfois une simple pile neuve suffit.
-- [Réparation de contacteur](https://france-locksmith.vercel.app/reparation-contacteur-demarrage/): Clé bloquée dans le contacteur ou qui ne tourne plus ? Nous réparons ou remplaçons le barillet de démarrage sur place, souvent sans remorquage.
-- [Ouverture de coffre de voiture](https://france-locksmith.vercel.app/ouverture-coffre-voiture/): Clés enfermées dans le coffre ou hayon bloqué ? Nous ouvrons le coffre de votre berline, SUV ou pick-up sans casse, en passant par l'habitacle.
+## 汽車鑰匙
+- [汽車開鎖服務](https://france-locksmith.vercel.app/services/car-lockout/): 鑰匙鎖在車裡、車門打不開？我們上門汽車開鎖，不刮車漆、不弄壞膠條，依車款選擇工具，國語粵語都能溝通。
+- [配車鑰匙 - 汽車鑰匙服務](https://france-locksmith.vercel.app/services/car-keys/): 配汽車鑰匙、遙控鑰匙、一鍵啟動智能鑰匙，我們上門切鑰匙並編程晶片，多半比去車行快又便宜，國語粵語服務。
+- [車鑰匙丟了怎麼辦](https://france-locksmith.vercel.app/services/lost-car-keys/): 在美國車鑰匙丟了怎麼辦？我們上門用車架號重新切鑰匙、編程晶片，並刪除遺失的舊鑰匙，不用把車拖去車行。
 
-## Commerces et bureaux
-- [Ouverture de local commercial](https://france-locksmith.vercel.app/ouverture-local-commercial/): Votre commerce ou votre bureau ne s'ouvre plus ? Nous ouvrons portes vitrées, portes en acier et rideaux métalliques, tôt le matin comme la nuit.
-- [Réparation de porte commerciale](https://france-locksmith.vercel.app/reparation-porte-commerciale/): Porte de magasin qui traîne, frotte ou ne ferme plus ? Nous réparons portes vitrées en aluminium et portes en acier : pivots, serrures, ferme-portes et alignement.
-- [Ferme-porte](https://france-locksmith.vercel.app/ferme-porte/): Porte qui claque ou qui ne se referme plus ? Nous réglons et remplaçons les ferme-portes hydrauliques (LCN, Norton, Dorma) des commerces et bureaux.
-- [Barre antipanique](https://france-locksmith.vercel.app/barre-antipanique/): Nous installons et réparons les barres antipanique (Von Duprin, Sargent, Detex) sur portes de sortie, conformes aux codes incendie et bien verrouillées.
-- [Contrôle d'accès](https://france-locksmith.vercel.app/controle-acces/): Contrôle d'accès par badge, code ou téléphone pour bureaux, commerces et immeubles : un départ, un badge désactivé, et aucune serrure à changer.
-- [Système passe-partout](https://france-locksmith.vercel.app/systeme-passe-partout/): Une clé pour le gérant qui ouvre tout, une clé par employé qui ouvre seulement sa zone. Nous concevons et installons votre système passe-partout (master key).
+## 商業與門禁
+- [商業開鎖與換鎖](https://france-locksmith.vercel.app/services/commercial-locksmith/): 餐館、商鋪、辦公室打不開或要換鎖？我們處理玻璃門、鐵門、卷閘的開鎖與換鎖，員工離職當天換鎖芯，國語粵語溝通。
+- [門禁系統安裝](https://france-locksmith.vercel.app/services/access-control/): 員工離職不用再換鎖。我們為餐館、商鋪、辦公室和公寓大樓安裝刷卡、密碼或手機門禁系統，依您的規模設計。
 
-## Coffres-forts et urgences
-- [Ouverture de coffre-fort](https://france-locksmith.vercel.app/ouverture-coffre-fort/): Combinaison oubliée, clavier en panne, clé perdue ? Nous ouvrons votre coffre-fort sans casse quand c'est possible, sinon par un perçage réparable.
-- [Installation de coffre-fort](https://france-locksmith.vercel.app/installation-coffre-fort/): Un coffre non fixé part avec le cambrioleur. Nous vous aidons à choisir votre coffre-fort, puis nous l'ancrons solidement au sol ou au mur.
-- [Serrurier d'urgence 24 h/24](https://france-locksmith.vercel.app/serrurier-urgence/): Bloqué dehors la nuit, porte forcée, clé cassée ? Nous sommes des serruriers francophones qui interviennent en urgence 24 h/24 et 7 j/7 partout aux États-Unis.
+## 緊急與保險箱
+- [24小時緊急開鎖服務](https://france-locksmith.vercel.app/services/24-hour-emergency-locksmith/): 半夜被鎖在門外、車門打不開、門鎖被撬？我們提供24小時緊急開鎖，週末和假日照常服務，電話裡先報價再出發。
+- [保險箱開鎖服務](https://france-locksmith.vercel.app/services/safe-opening/): 保險箱密碼忘了、電子鍵盤沒反應、鑰匙不見了？我們上門開保險箱，能不破壞就不破壞，必要時精準鑽孔，保險箱修好還能用。
+
+## 開鎖知識
+- [美國開鎖多少錢？](https://france-locksmith.vercel.app/blog/locksmith-cost-usa/): 在美國叫鎖匠開鎖要多少錢？我們整理2026年全美開鎖、換鎖芯、換鎖、汽車開鎖和配車鑰匙的參考價格，以及影響價錢的因素。
+- [美國換鎖多少錢？](https://france-locksmith.vercel.app/blog/lock-change-cost/): 在美國換一道門鎖要多少錢？換鎖芯和換整個鎖差多少？我們整理全美參考價格，告訴您什麼時候只換鎖芯就夠用。
+- [鑰匙鎖在車裡怎麼辦？](https://france-locksmith.vercel.app/blog/keys-locked-in-car/): 鑰匙鎖在車裡怎麼辦？先確認有沒有人或寵物在車內，再檢查備用鑰匙、App和道路救援，最後才找鎖匠，避免花冤枉錢。
+- [保險箱密碼忘了怎麼辦？](https://france-locksmith.vercel.app/blog/forgot-safe-code/): 保險箱密碼忘了怎麼辦？先找應急鑰匙、檢查電池、聯絡廠商重設，機械轉盤和電子鍵盤的處理方法不一樣，最後才找鎖匠。
+- [鑰匙斷在鎖裡怎麼辦？](https://france-locksmith.vercel.app/blog/broken-key-in-lock/): 鑰匙斷在鎖裡怎麼辦？露出來的話可以用尖嘴夾試試，卡在裡面就別再戳，千萬不要用膠水。鎖匠通常不用鑽鎖就能取出。
+- [在美國租房可以換鎖嗎？](https://france-locksmith.vercel.app/blog/change-locks-renting-usa/): 在美國租房可以自己換鎖嗎？要看州法和租約。加州、喬治亞州較寬鬆，德州、密西根州要房東同意。換鎖前要知道的事都在這裡。
+- [如何避免開鎖詐騙](https://france-locksmith.vercel.app/blog/avoid-locksmith-scams/): 電話報$19，到場變$300？我們整理美國常見的開鎖詐騙手法，以及打電話時該問的問題，教您找到老實的鎖匠。
+- [鎖的種類完整介紹](https://france-locksmith.vercel.app/blog/types-of-locks/): 美國的鎖有哪些種類？球形鎖、把手鎖、輔助鎖、插芯鎖、智能鎖、掛鎖，各適合什麼門、怎麼挑，鎖匠用中文一次講清楚。
+- [智能門鎖推薦](https://france-locksmith.vercel.app/blog/best-smart-locks/): 在美國買智能門鎖，Schlage Encode、Yale Assure、August、Level、Kwikset Halo怎麼選？鎖匠依照使用情況給您老實的建議。
+- [家用保險箱怎麼選](https://france-locksmith.vercel.app/blog/home-safe-guide/): 家用保險箱怎麼選？防火和防盜是兩回事，UL RSC、TL-15認證代表什麼，放哪裡、要不要固定在地上，鎖匠一次講清楚。
+
+## 其他
+- [關於我們](https://france-locksmith.vercel.app/about/): 我們是在美國服務華人的鎖匠，國語、粵語都能溝通。這裡說明我們的工作方式：先報價、先核對身分、能修就不換。
+- [聯繫我們](https://france-locksmith.vercel.app/contact/): 需要開鎖、換鎖或配車鑰匙？打電話、傳短訊或加微信聯繫我們，國語、粵語都可以，24小時接聽，先報價再出發。
+- [開鎖常見問題](https://france-locksmith.vercel.app/faq/): 開鎖要多少錢、多久能到、要帶什麼證件、會不會弄壞鎖、租房能不能換鎖？客人最常問我們的開鎖問題，用中文一次整理。
+- [開鎖收費標準](https://france-locksmith.vercel.app/pricing/): 開鎖、換鎖芯、換鎖、汽車開鎖、配車鑰匙、保險箱開鎖的全美參考價格，以及我們的報價原則：電話裡報總價，不到場加價。

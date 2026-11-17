@@ -64,4 +64,17 @@ ICONS = {
     "safeinstall": '<rect x="14" y="10" width="36" height="36" rx="3"/><circle cx="32" cy="27" r="6"/><path d="M44 22v10"/><path d="M6 54h52"/><path d="M20 46v8M44 46v8"/><path d="M26 50h-6M44 50h-6" opacity=".5"/>',
     # Horloge 24 h
     "clock": '<circle cx="32" cy="32" r="24"/><path d="M32 18v14l9 6"/><path d="M32 8v3M56 32h-3M32 56v-3M8 32h3" opacity=".5"/>',
+
+    # Étiquette de prix
+    "tag": '<path d="M8 30V10a2 2 0 0 1 2-2h20l26 26-22 22z"/><circle cx="20" cy="20" r="4"/><path d="M30 38l8-8M26 34l4 4" opacity=".5"/>',
+    # Livre ouvert (blog)
+    "book": '<path d="M32 16c-6-5-14-6-24-5v38c10-1 18 0 24 5 6-5 14-6 24-5V11c-10-1-18 0-24 5z"/><path d="M32 16v38"/><path d="M14 22h10M14 30h10M40 22h10M40 30h10" opacity=".5"/>',
+    # Bulle de discussion (contact)
+    "chat": '<path d="M10 14h44v28H30l-12 10V42h-8z"/><circle cx="22" cy="28" r="2"/><circle cx="32" cy="28" r="2"/><circle cx="42" cy="28" r="2"/>',
+    # Point d'interrogation (FAQ)
+    "question": '<circle cx="32" cy="32" r="24"/><path d="M24 25a8 8 0 1 1 11 7.4c-2 .9-3 2.4-3 4.6v2"/><circle cx="32" cy="46" r="1.6"/>',
+    # Personnes (à propos)
+    "people": '<circle cx="24" cy="22" r="8"/><path d="M8 52a16 16 0 0 1 32 0"/><circle cx="44" cy="24" r="6" opacity=".6"/><path d="M40 38a13 13 0 0 1 17 14" opacity=".6"/>',
+    # Valise à code
+    "luggage": '<rect x="14" y="18" width="36" height="38" rx="4"/><path d="M24 18v-8h16v8"/><path d="M14 30h36" opacity=".5"/><rect x="26" y="36" width="12" height="8" rx="1.5"/>',
 }
