@@ -2,7 +2,7 @@
 @font-face{font-family:"Fraunces";src:url(/fonts/fraunces-600.woff2) format("woff2");font-weight:600;font-display:swap}
 :root{
   --paper:#f5f0e6;--paper2:#ebe3d3;--ink:#14202b;--ink2:#3b4753;--muted:#66707a;
-  --brass:#b5832a;--brass2:#e0ac4a;--rust:#b4442a;--rust2:#953520;--teal:#24585c;
+  --brass:#b5832a;--brass-ink:#7f5a12;--brass2:#e0ac4a;--rust:#b4442a;--rust2:#953520;--teal:#24585c;
   --line:rgba(20,32,43,.14);--r:14px;
   --serif:"Fraunces","PingFang TC","Noto Sans TC","Microsoft JhengHei","Heiti TC",sans-serif;
   --sans:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei","Heiti TC",system-ui,"Segoe UI",Roboto,Arial,sans-serif;
@@ -37,7 +37,7 @@ p{margin:0 0 1em}
 .nav summary::after{content:"";display:inline-block;width:7px;height:7px;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg);margin:0 0 3px 10px}
 .nav[open] summary{background:var(--ink);color:#fff}
 .mega{position:absolute;right:0;top:calc(100% + 10px);width:min(900px,92vw);background:#fffdf8;border:1px solid var(--line);border-radius:var(--r);box-shadow:0 24px 60px -20px rgba(20,32,43,.35);padding:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.mcat{font:600 .8rem/1.2 var(--sans);text-transform:uppercase;letter-spacing:.08em;color:var(--brass);margin-bottom:8px}
+.mcat{font:600 .8rem/1.2 var(--sans);text-transform:uppercase;letter-spacing:.08em;color:var(--brass-ink);margin-bottom:8px}
 .mega ul{list-style:none;margin:0;padding:0}
 .mega li a{display:block;padding:4px 0;color:var(--ink);text-decoration:none;font-size:.95rem}
 .mega li a:hover{color:var(--rust)}
@@ -54,7 +54,7 @@ p{margin:0 0 1em}
 .btn-ghost-light:hover{background:#fff;color:var(--ink)}
 .hd-cta{padding:10px 18px;font-size:.92rem}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.kicker{font:600 .85rem/1.4 var(--sans);letter-spacing:.14em;color:var(--brass);margin-bottom:14px}
+.kicker{font:600 .85rem/1.4 var(--sans);letter-spacing:.14em;color:var(--brass-ink);margin-bottom:14px}
 .kicker-light{color:var(--brass2)}
 .lead{font-size:1.18rem;color:var(--ink2);max-width:58ch}
 
@@ -90,7 +90,7 @@ p{margin:0 0 1em}
 .how{background:var(--paper2);padding:72px 0}
 .how-l,.steps ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .how-l li,.steps li{background:var(--paper);border-radius:var(--r);padding:24px;border:1px solid var(--line)}
-.sn{display:block;font:600 2.4rem/1 var(--serif);color:var(--brass);margin-bottom:12px}
+.sn{display:block;font:600 2.4rem/1 var(--serif);color:var(--brass-ink);margin-bottom:12px}
 .how-l p,.steps li p{font-size:.96rem;color:var(--ink2);margin:0}
 
 /* Page de service */
@@ -126,7 +126,7 @@ p{margin:0 0 1em}
 .tag-t{font:600 1.15rem/1.2 var(--serif);text-align:center;margin-bottom:14px}
 .tag dl{margin:0}
 .tag dl div{padding:10px 0;border-top:1px dashed var(--line)}
-.tag dt{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--brass);font-weight:600}
+.tag dt{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--brass-ink);font-weight:600}
 .tag dd{margin:2px 0 0;font-size:.96rem}
 .side-cta{background:var(--ink);color:#e5dac4;border-radius:var(--r);padding:22px}
 .side-cta p{font-size:.95rem}
@@ -202,7 +202,7 @@ p{margin:0 0 1em}
 }
 
 .aka{border-top:1px dashed var(--line);margin-top:6px;padding-top:12px}
-.aka p{font-size:.75rem;letter-spacing:.08em;color:var(--brass);font-weight:600;margin:0 0 6px}
+.aka p{font-size:.75rem;letter-spacing:.08em;color:var(--brass-ink);font-weight:600;margin:0 0 6px}
 .aka ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
 .aka li{font-size:.85rem;background:var(--paper2);border-radius:999px;padding:2px 10px}
 .mlinks{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 20px;border-top:1px solid var(--line);padding-top:14px}
@@ -215,3 +215,7 @@ p{margin:0 0 1em}
 .cbox strong{color:var(--brass2);min-width:5em}
 .cbox a{color:#fff}
 .cbox p{margin:0}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.meta{font-size:.88rem;color:var(--muted);margin-top:14px}
+.related{padding:56px 0;border-top:1px solid var(--line)}
+.related h2{margin-bottom:22px}

@@ -74,7 +74,7 @@ def load_pages():
     return pages
 
 
-def plate_svg(seed, icon):
+def plate_svg(seed, icon, label="服務示意圖"):
     """頁首插圖：銅色刻度盤、圖示，以及每頁不同齒形的鑰匙。"""
     h = hashlib.md5(seed.encode()).digest()
     cuts = [3 + (b % 5) * 3 for b in h[:8]]
@@ -87,7 +87,7 @@ def plate_svg(seed, icon):
         f'<line x1="160" y1="22" x2="160" y2="{32 if i % 5 else 40}" transform="rotate({i * 6} 160 150)"/>'
         for i in range(60))
     rot = h[9] % 40 - 20
-    return f'''<svg class="plate" viewBox="0 0 320 300" role="img" aria-label="服務示意圖" xmlns="http://www.w3.org/2000/svg">
+    return f'''<svg class="plate" viewBox="0 0 320 300" role="img" aria-label="{esc(label)}" xmlns="http://www.w3.org/2000/svg">
 <circle cx="160" cy="150" r="128" class="pl-disc"/>
 <g class="pl-ticks">{ticks}</g>
 <circle cx="160" cy="150" r="96" class="pl-ring"/>
@@ -118,7 +118,8 @@ def phone_cta(cls="btn btn-rust"):
 
 
 def business_ld():
-    d = {"@context": "https://schema.org", "@type": "Locksmith", "name": BRAND, "url": abs_url("/"),
+    d = {"@context": "https://schema.org", "@type": "Locksmith", "@id": abs_url("/#business"), "name": BRAND, "url": abs_url("/"),
+         "logo": abs_url("/icon-512.png"), "image": abs_url("/og.png"), "priceRange": "$$",
          "areaServed": {"@type": "Country", "name": "United States"},
          "availableLanguage": ["zh-Hant", "zh-Hans", "Mandarin Chinese", "Cantonese", "English"],
          "openingHours": "Mo-Su 00:00-23:59"}
@@ -154,6 +155,14 @@ def head(title, desc, path, schema, noindex=False):
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{url}">
+<meta property="og:image" content="{abs_url("/og.png")}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{esc(BRAND)}：美國華人開鎖服務，國語粵語24小時">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{esc(title)}">
+<meta name="twitter:description" content="{esc(desc)}">
+<meta name="twitter:image" content="{abs_url("/og.png")}">
 <meta name="theme-color" content="#14202b">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -257,6 +266,16 @@ def aka_html(p):
     return f'<div class="aka"><p>也有人搜尋</p><ul>{chips}</ul></div>'
 
 
+RELATED = {}
+
+
+def related_html(items, title):
+    if not items:
+        return ""
+    lis = "".join(f'<li><a class="hub-card" href="{q["url"]}">{icon_svg(q["icon"])}<span><strong>{esc(q["h1"])}</strong><em>{esc(q["lead"])}</em></span></a></li>' for q in items)
+    return f'<section class="related"><div class="wrap"><h2>{title}</h2><ul class="hub-l">{lis}</ul></div></section>'
+
+
 def render_service(p, by_url):
     body = markdown.Markdown(extensions=["sane_lists", "tables"]).convert(p["body_md"])
     check_links(p, body, by_url)
@@ -269,7 +288,7 @@ def render_service(p, by_url):
         {"@context": "https://schema.org", "@type": "WebPage", "name": p["title"], "description": p["description"],
          "inLanguage": LANG, "url": abs_url(p["url"])},
         {"@context": "https://schema.org", "@type": "Service", "name": p["h1"], "serviceType": p["keyword"],
-         "description": p["description"], "provider": {"@type": "Locksmith", "name": BRAND, "url": abs_url("/")},
+         "description": p["description"], "provider": {"@id": abs_url("/#business")},
          "areaServed": {"@type": "Country", "name": "United States"}, "availableLanguage": ["zh", "yue"]},
         breadcrumb_ld(crumbs), faq_ld(p["faq"]),
     ]
@@ -278,13 +297,13 @@ def render_service(p, by_url):
         warnings.append(f'{p["url"]}: 只有 {p["chars"]} 個中文字（至少850）')
     return head(p["title"], p["description"], p["url"], schema) + header() + f'''
 <section class="svc-hero"><div class="wrap sh">
-<div class="sh-txt">{crumbs_html([("首頁", "/"), (cat[1], "/services/"), (p["name"], p["url"])])}
+<div class="sh-txt">{crumbs_html(crumbs)}
 <p class="kicker">{esc(p["kicker"])}</p>
 <h1>{esc(p["h1"])}</h1>
 <p class="lead">{esc(p["lead"])}</p>
 <div class="ctas">{phone_cta()}<a class="btn btn-ghost" href="#steps">服務流程</a></div>
 </div>
-<div class="sh-art">{plate_svg(p["url"], p["icon"])}</div>
+<div class="sh-art">{plate_svg(p["url"], p["icon"], p["name"] + "示意圖")}</div>
 </div>{CUTS}</section>
 <div class="wrap svc-grid">
 <article class="prose">{body}</article>
@@ -293,6 +312,7 @@ def render_service(p, by_url):
 </div>
 <section class="steps" id="steps"><div class="wrap"><h2>服務流程</h2><ol>{steps}</ol></div></section>
 {faq_html(p["faq"])}
+{related_html(RELATED.get(p["url"], []), "延伸閱讀與相關服務")}
 <section class="band"><div class="wrap band-in"><p>先講清楚做法和價錢，您同意了我們才動手。</p>{phone_cta("btn btn-brass")}</div></section>''' + footer()
 
 
@@ -303,8 +323,8 @@ def render_blog(p, by_url):
     schema = [
         {"@context": "https://schema.org", "@type": "BlogPosting", "headline": p["h1"], "description": p["description"],
          "inLanguage": LANG, "datePublished": str(p.get("date", "2026-11-17")), "dateModified": str(p.get("date", "2026-11-17")),
-         "mainEntityOfPage": abs_url(p["url"]), "author": {"@type": "Organization", "name": BRAND},
-         "publisher": {"@type": "Organization", "name": BRAND}},
+         "mainEntityOfPage": abs_url(p["url"]), "author": {"@id": abs_url("/#business")}, "publisher": {"@id": abs_url("/#business")},
+         "image": abs_url("/og.png")},
         breadcrumb_ld(crumbs),
     ]
     if p.get("faq"):
@@ -318,8 +338,9 @@ def render_blog(p, by_url):
 <p class="kicker">{esc(p["kicker"])}</p>
 <h1>{esc(p["h1"])}</h1>
 <p class="lead">{esc(p["lead"])}</p>
+<p class="meta">{esc(BRAND)}・更新日期 <time datetime="{p.get("date", LASTMOD)}">{p.get("date", LASTMOD)}</time></p>
 </div>
-<div class="sh-art">{plate_svg(p["url"], p["icon"])}</div>
+<div class="sh-art">{plate_svg(p["url"], p["icon"], p["name"] + "示意圖")}</div>
 </div>{CUTS}</section>
 <div class="wrap svc-grid">
 <article class="prose">{body}</article>
@@ -327,6 +348,7 @@ def render_blog(p, by_url):
 <div class="side-cta"><p>文章沒寫到您的情況？直接問我們，國語、粵語都可以。</p>{phone_cta()}</div></aside>
 </div>
 {faq_html(p.get("faq"))}
+{related_html(RELATED.get(p["url"], []), "相關服務與其他文章")}
 <section class="band"><div class="wrap band-in"><p>需要鎖匠上門？先問價錢，不收冤枉錢。</p>{phone_cta("btn btn-brass")}</div></section>''' + footer()
 
 
@@ -363,7 +385,7 @@ def render_page(p, by_url):
 <h1>{esc(p["h1"])}</h1>
 <p class="lead">{esc(p["lead"])}</p>
 </div>
-<div class="sh-art">{plate_svg(p["url"], p["icon"])}</div>
+<div class="sh-art">{plate_svg(p["url"], p["icon"], p["name"] + "示意圖")}</div>
 </div>{CUTS}</section>
 <div class="wrap narrow page-body prose">{body}</div>
 {faq_html(p.get("faq"), p.get("faq_title", "常見問題"))}
@@ -391,7 +413,7 @@ def render_home(services, posts):
 <section class="hero"><div class="wrap hero-in">
 <div class="hero-txt">
 <p class="kicker kicker-light">開鎖・換鎖・配鑰匙・國語粵語服務</p>
-<h1>美國華人開鎖服務<em>24小時中文鎖匠</em></h1>
+<h1>美國華人開鎖服務<span class="vh"> - </span><em>24小時中文鎖匠</em></h1>
 <p class="lead">在美國被鎖在門外，最怕的就是講不清楚、聽不懂報價。我們是說中文的鎖匠，房子、汽車、店鋪、保險箱都能開，到場之前先把做法和價錢講明白。</p>
 <div class="ctas">{phone_cta()}<a class="btn btn-ghost-light" href="/services/">查看所有開鎖服務</a></div>
 </div>
@@ -475,6 +497,16 @@ def main():
     others = [p for p in pages if p["type"] == "page"]
     for key, *_ in CATEGORIES:
         NAV[key] = sorted([p for p in services if p["category"] == key], key=lambda p: p.get("order", 99))
+    def links_of(q):
+        return re.findall(r'\]\((/[^)]+)\)', q["body_md"])
+    for s in services:
+        rel = [b for b in posts if s["url"] in links_of(b)]
+        sibs = [x for x in NAV[s["category"]] if x["url"] != s["url"] and x["url"] not in links_of(s)]
+        RELATED[s["url"]] = (rel + sibs)[:3]
+    for i, b in enumerate(posts):
+        svc = [by_url[u] for u in links_of(b) if u.startswith("/services/")]
+        more_posts = [posts[(i + k) % len(posts)] for k in range(1, len(posts)) if posts[(i + k) % len(posts)]["url"] not in links_of(b)]
+        RELATED[b["url"]] = (svc[:1] + more_posts)[:3]
     for p in pages:
         if p["icon"] not in ICONS:
             errors.append(f'{p["url"]}: 未知圖示 {p["icon"]}')
@@ -487,7 +519,7 @@ def main():
         shutil.rmtree(OUT)
     (OUT / "fonts").mkdir(parents=True)
     shutil.copy(ROOT / "src" / "fraunces-600.woff2", OUT / "fonts" / "fraunces-600.woff2")
-    for icon in ("favicon.svg", "favicon.ico", "favicon-48.png", "favicon-96.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png"):
+    for icon in ("og.png", "favicon.svg", "favicon.ico", "favicon-48.png", "favicon-96.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png"):
         shutil.copy(ROOT / "src" / icon, OUT / icon)
     (OUT / "site.webmanifest").write_text(json.dumps({
         "name": BRAND, "short_name": BRAND, "lang": "zh-Hant", "start_url": "/", "display": "standalone",
