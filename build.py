@@ -313,6 +313,7 @@ def render_service(p, by_url):
 <div class="sh-txt">{crumbs_html(crumbs)}
 <p class="kicker">{esc(p["kicker"])}</p>
 <h1>{esc(p["h1"])}</h1>
+{qform(p["url"])}
 <p class="lead">{esc(p["lead"])}</p>
 <div class="ctas">{phone_cta()}<a class="btn btn-ghost" href="#steps">服務流程</a></div>
 </div>
@@ -350,6 +351,7 @@ def render_blog(p, by_url):
 <div class="sh-txt">{crumbs_html(crumbs)}
 <p class="kicker">{esc(p["kicker"])}</p>
 <h1>{esc(p["h1"])}</h1>
+{qform(p["url"])}
 <p class="lead">{esc(p["lead"])}</p>
 <p class="meta">{esc(BRAND)}・更新日期 <time datetime="{p.get("date", LASTMOD)}">{p.get("date", LASTMOD)}</time></p>
 </div>
@@ -396,6 +398,7 @@ def render_page(p, by_url):
 <div class="sh-txt">{crumbs_html(crumbs)}
 <p class="kicker">{esc(p["kicker"])}</p>
 <h1>{esc(p["h1"])}</h1>
+{qform(p["url"])}
 {('<div class="cbox-top">' + contact_block() + '</div>') if p.get("contact_top") else ""}<p class="lead">{esc(p["lead"])}</p>
 </div>
 <div class="sh-art">{plate_svg(p["url"], p["icon"], p["name"] + "示意圖")}</div>
@@ -427,6 +430,7 @@ def render_home(services, posts):
 <div class="hero-txt">
 <p class="kicker kicker-light">開鎖・換鎖・配鑰匙・國語粵語服務</p>
 <h1>美國華人開鎖服務<span class="vh"> - </span><em>24小時中文鎖匠</em></h1>
+{qform("/", dark=True)}
 <p class="lead">在美國被鎖在門外，最怕的就是講不清楚、聽不懂報價。我們是說中文的鎖匠，房子、汽車、店鋪、保險箱都能開，到場之前先把做法和價錢講明白。</p>
 <div class="ctas">{phone_cta()}<a class="btn btn-ghost-light" href="/services/">查看所有開鎖服務</a></div>
 </div>
@@ -457,7 +461,7 @@ def render_services_hub():
         blocks += f'<section class="hub-sec"><h2>{esc(label)}</h2><p>{esc(blurb)}</p><ul class="hub-l">{items}</ul></section>'
     crumbs = [("首頁", "/"), ("服務項目", "/services/")]
     return head("開鎖服務項目｜住宅、汽車、商業開鎖與換鎖", "我們在美國提供的全部開鎖服務：住宅開鎖、換鎖、換鎖芯、智能門鎖、汽車開鎖、配車鑰匙、保險箱開鎖與商業換鎖，國語粵語服務。", "/services/", [breadcrumb_ld(crumbs)]) + header() + f'''
-<section class="svc-hero hub-hero"><div class="wrap">{crumbs_html(crumbs)}<h1>開鎖服務項目</h1><p class="lead">以下是我們每週都在做的開鎖服務，依照您被鎖住的地方分類。不確定屬於哪一項？打電話描述狀況就好，我們幫您判斷。</p></div></section>
+<section class="svc-hero hub-hero"><div class="wrap">{crumbs_html(crumbs)}<h1>開鎖服務項目</h1>{qform("/services/")}<p class="lead">以下是我們每週都在做的開鎖服務，依照您被鎖住的地方分類。不確定屬於哪一項？打電話描述狀況就好，我們幫您判斷。</p></div></section>
 <div class="wrap hub">{blocks}<p class="more"><a href="/pricing/">各項服務的參考價格請看收費標準</a></p></div>''' + footer()
 
 
@@ -466,9 +470,37 @@ def render_blog_hub(posts):
     crumbs = [("首頁", "/"), ("開鎖知識", "/blog/")]
     schema = [breadcrumb_ld(crumbs), {"@context": "https://schema.org", "@type": "Blog", "name": "開鎖知識與防盜指南", "inLanguage": LANG, "url": abs_url("/blog/")}]
     return head("開鎖知識與防盜指南｜美國華人鎖匠經驗分享", "在美國開鎖、換鎖要多少錢？鑰匙鎖在車裡怎麼辦？租房可以換鎖嗎？鎖匠用中文整理的實用知識與防盜建議。", "/blog/", schema) + header() + f'''
-<section class="svc-hero hub-hero"><div class="wrap">{crumbs_html(crumbs)}<h1>開鎖知識與防盜指南</h1><p class="lead">這些都是客人在電話裡最常問我們的問題。我們把答案寫下來，希望您下次遇到時心裡有底。</p></div></section>
+<section class="svc-hero hub-hero"><div class="wrap">{crumbs_html(crumbs)}<h1>開鎖知識與防盜指南</h1>{qform("/blog/")}<p class="lead">這些都是客人在電話裡最常問我們的問題。我們把答案寫下來，希望您下次遇到時心裡有底。</p></div></section>
 <div class="wrap hub"><ul class="hub-l">{items}</ul></div>''' + footer()
 
+
+
+def qform(path, dark=False):
+    """聯絡表單：純HTML，透過 FormSubmit 寄到 CONFIG["email"]。第一次提交後需在信箱點確認連結啟用。"""
+    if not CONFIG["email"]:
+        return ""
+    cls = "qform qform-dark" if dark else "qform"
+    return f'''<form class="{cls}" action="https://formsubmit.co/{esc(CONFIG["email"])}" method="POST" accept-charset="UTF-8">
+<input type="hidden" name="_subject" value="網站詢問 huarenkaisuo.com">
+<input type="hidden" name="_next" value="{esc(abs_url("/thanks/"))}">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="page" value="{esc(abs_url(path))}">
+<input class="qf-hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+<p class="qf-t">留下電話，我們回電報價</p>
+<div class="qf-grid">
+<label><span>姓名</span><input type="text" name="name" required autocomplete="name"></label>
+<label><span>電話</span><input type="tel" name="phone" required autocomplete="tel" inputmode="tel"></label>
+<label class="qf-wide"><span>需要什麼幫忙</span><input type="text" name="message" placeholder="例如：被鎖在門外、換鎖"></label>
+<button class="btn btn-rust" type="submit">送出</button>
+</div>
+<p class="qf-note">國語、粵語都可以。急事請直接打電話。</p>
+</form>'''
+
+
+def render_thanks():
+    return head("已收到您的訊息", "我們已收到您的訊息，會盡快回電。", "/thanks/", [], noindex=True) + header() + '''
+<section class="svc-hero"><div class="wrap narrow"><p class="kicker">已送出</p><h1>收到了，我們會盡快回電</h1><p class="lead">一般幾分鐘內就會打給您。如果是急事，或者人被鎖在外面，直接打電話會更快。</p><div class="ctas">''' + phone_cta() + '''<a class="btn btn-ghost" href="/">回到首頁</a></div></div></section>''' + footer()
 
 def render_404():
     return head("找不到這個頁面", "這個頁面不存在或已經移動。", "/404", [], noindex=True) + header() + '''
@@ -550,6 +582,7 @@ def main():
     write("/services/", render_services_hub())
     write("/blog/", render_blog_hub(posts))
     write("/404", render_404())
+    write("/thanks/", render_thanks())
     for p in services:
         write(p["url"], render_service(p, by_url))
     for p in posts:

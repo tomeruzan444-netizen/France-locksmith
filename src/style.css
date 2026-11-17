@@ -225,3 +225,19 @@ p{margin:0 0 1em}
 .cbox-top .cbox a{font-weight:700;font-family:inherit}
 .cbox-top .cbox strong{min-width:3em}
 @media (max-width:760px){.sh:has(.cbox-top) .sh-art{display:none}.cbox-top .cbox{font-size:1.05rem;padding:20px}}
+
+/* 聯絡表單 */
+.qform{margin:18px 0 22px;padding:18px 20px 14px;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:0 8px 24px rgba(20,32,43,.08);max-width:640px}
+.qf-t{font-weight:700;margin:0 0 10px;font-size:1.02rem}
+.qf-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px}
+.qform label{display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--ink2)}
+.qform input[type=text],.qform input[type=tel]{font:inherit;font-size:1rem;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);width:100%}
+.qform input:focus{outline:2px solid var(--brass2);outline-offset:1px;border-color:transparent}
+.qf-wide{grid-column:1/-1}
+.qform .btn{grid-column:1/-1;border:0;cursor:pointer;font:inherit;font-weight:700;padding:12px}
+.qf-note{margin:8px 0 0;font-size:.8rem;color:var(--muted)}
+.qf-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.qform-dark{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18);box-shadow:none}
+.qform-dark .qf-t{color:#fff}.qform-dark label{color:#cfc4ae}.qform-dark .qf-note{color:#a99f8b}
+.qform-dark input[type=text],.qform-dark input[type=tel]{background:rgba(255,255,255,.92)}
+@media (min-width:761px){.qf-grid{grid-template-columns:1fr 1fr 1.4fr auto}.qf-wide{grid-column:auto}.qform .btn{grid-column:auto;align-self:end;padding:11px 22px}.qform{max-width:none}}
