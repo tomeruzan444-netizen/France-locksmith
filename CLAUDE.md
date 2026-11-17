@@ -79,7 +79,7 @@
 - שדות front matter: `url`, `type` (service / blog / page), `icon`, `category` (בשירותים), `name`, `title`, `description`, `h1`, `kicker`, `lead`, `keyword`, `aka`, `quick`, `steps`, `faq`, `priority`.
 - בלי JavaScript, בלי ספריות. חריג יחיד: סקריפט הצ'אט של Tawk.to ב-footer() ב-`build.py` (נוסף לבקשת תומר). גרפיקה = SVG inline. פונט Fraunces רק לספרות ולאותיות לטיניות, הסינית בפונט המערכת (PingFang TC / Noto Sans TC / Microsoft JhengHei).
 - CONFIG בראש `build.py`: שם, טלפון, WeChat, אימייל, כתובת, דומיין. ריקים = לא מוצגים.
-- טופס יצירת קשר: `qform()` ב-`build.py`, מופיע מיד אחרי ה-H1 בכל העמודים (חוץ מ-404 ו-/thanks/). HTML טהור, נשלח דרך FormSubmit ל-CONFIG["email"], מפנה ל-/thanks/ (noindex, לא ב-sitemap). שליחה ראשונה דורשת אישור במייל של FormSubmit.
+- טופס יצירת קשר: `qform()` ב-`build.py`, מופיע מיד אחרי ה-H1 בכל העמודים (חוץ מ-404 ו-/thanks/). HTML טהור, נשלח דרך FormSubmit ל-CONFIG["form_email"] (כרגע ben3n4456@gmail.com, לא מוצג באתר; האימייל הגלוי באתר נשאר CONFIG["email"]), מפנה ל-/thanks/ (noindex, לא ב-sitemap). שליחה ראשונה דורשת אישור במייל של FormSubmit.
 - `indexable`: כרגע `True` = האתר פתוח לאינדוקס, ו-robots.txt מתיר במפורש את Googlebot, Bingbot ובוטי ה-AI (GPTBot, ClaudeBot, PerplexityBot, Google-Extended ועוד). `False` = חסימה (meta noindex + X-Robots-Tag).
 - דומיין ראשי: huarenkaisuo.com (www מפנה אליו). france-locksmith.vercel.app מפנה 308 לדומיין דרך vercel.json.
 - אין כתובת פיזית באתר, בכוונה. לא להוסיף.
