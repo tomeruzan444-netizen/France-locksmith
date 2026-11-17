@@ -12,16 +12,17 @@ from icons import ICONS
 # ---------------------------------------------------------------------------
 CONFIG = {
     "site_name": "",        # 網站名稱
-    "phone": "",            # 顯示用，例如 "(555) 123-4567"
-    "phone_href": "",       # 例如 "+15551234567"
+    "phone": "(212) 555-0104",            # 顯示用
+    "phone_href": "+12125550104",
     "wechat": "",           # 微信號
-    "email": "",
-    "address": "",
-    "site_url": "https://france-locksmith.vercel.app",
-    "indexable": False,     # False = 封鎖搜尋引擎（noindex）。網站準備好上線時改成 True
+    "email": "huarenkaisuo@gmail.com",
+    "address": "",          # 刻意留空：網站不顯示實體地址
+    "site_url": "https://huarenkaisuo.com",
+    "indexable": True,      # True = 開放搜尋引擎與AI爬蟲索引；False = noindex 封鎖
 }
 BRAND = CONFIG["site_name"] or "中文鎖匠"
 LANG = "zh-Hant-US"
+LASTMOD = "2026-11-17"
 
 ROOT = Path(__file__).parent
 OUT = ROOT / "public"
@@ -326,7 +327,8 @@ def render_blog(p, by_url):
 def contact_block():
     rows = []
     if CONFIG["phone"]:
-        rows.append(f'<li><strong>電話與短訊</strong><a href="tel:{esc(CONFIG["phone_href"])}">{esc(CONFIG["phone"])}</a></li>')
+        rows.append(f'<li><strong>電話</strong><a href="tel:{esc(CONFIG["phone_href"])}">{esc(CONFIG["phone"])}</a></li>')
+        rows.append(f'<li><strong>短訊</strong><a href="sms:{esc(CONFIG["phone_href"])}">{esc(CONFIG["phone"])}</a></li>')
     if CONFIG["wechat"]:
         rows.append(f'<li><strong>微信</strong><span>{esc(CONFIG["wechat"])}</span></li>')
     if CONFIG["email"]:
@@ -504,9 +506,14 @@ def main():
     urls = ["/", "/services/", "/blog/"] + [p["url"] for p in services + posts + others]
     (OUT / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        + "".join(f"<url><loc>{base}{u}</loc></url>\n" for u in urls) + "</urlset>\n", encoding="utf-8")
+        + "".join(f"<url><loc>{base}{u}</loc><lastmod>{LASTMOD}</lastmod></url>\n" for u in urls) + "</urlset>\n", encoding="utf-8")
     if CONFIG["indexable"]:
-        (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {base}/sitemap.xml\n", encoding="utf-8")
+        bots = ["Googlebot", "Bingbot", "Google-Extended", "GPTBot", "OAI-SearchBot", "ChatGPT-User",
+                "ClaudeBot", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Perplexity-User",
+                "Applebot", "Applebot-Extended", "DuckDuckBot", "CCBot"]
+        txt = "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots)
+        txt += f"User-agent: *\nAllow: /\n\nSitemap: {base}/sitemap.xml\n"
+        (OUT / "robots.txt").write_text(txt, encoding="utf-8")
     else:
         # 不用 Disallow：讓搜尋引擎能讀到每頁的 noindex
         (OUT / "robots.txt").write_text("User-agent: *\nAllow: /\n", encoding="utf-8")

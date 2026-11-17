@@ -79,7 +79,9 @@
 - שדות front matter: `url`, `type` (service / blog / page), `icon`, `category` (בשירותים), `name`, `title`, `description`, `h1`, `kicker`, `lead`, `keyword`, `aka`, `quick`, `steps`, `faq`, `priority`.
 - בלי JavaScript, בלי ספריות. גרפיקה = SVG inline. פונט Fraunces רק לספרות ולאותיות לטיניות, הסינית בפונט המערכת (PingFang TC / Noto Sans TC / Microsoft JhengHei).
 - CONFIG בראש `build.py`: שם, טלפון, WeChat, אימייל, כתובת, דומיין. ריקים = לא מוצגים.
-- `indexable`: כרגע `False` = האתר חסום למנועי חיפוש (meta noindex בכל עמוד + כותרת X-Robots-Tag ב-Vercel). כשהאתר מוכן לעלייה: לשנות ל-`True`, להריץ build ולדחוף.
+- `indexable`: כרגע `True` = האתר פתוח לאינדוקס, ו-robots.txt מתיר במפורש את Googlebot, Bingbot ובוטי ה-AI (GPTBot, ClaudeBot, PerplexityBot, Google-Extended ועוד). `False` = חסימה (meta noindex + X-Robots-Tag).
+- דומיין ראשי: huarenkaisuo.com (www מפנה אליו). france-locksmith.vercel.app מפנה 308 לדומיין דרך vercel.json.
+- אין כתובת פיזית באתר, בכוונה. לא להוסיף.
 - לפני commit: `python3 build.py` חייב לעבור בלי שגיאות ובלי אזהרות.
 
 ## 8. הוספת עמוד

@@ -28,12 +28,21 @@
         {
           "key": "X-Frame-Options",
           "value": "SAMEORIGIN"
-        },
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "france-locksmith.vercel.app"
+        }
+      ],
+      "destination": "https://huarenkaisuo.com/:path*",
+      "permanent": true
     }
   ]
 }
