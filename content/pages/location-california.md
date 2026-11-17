@@ -10,7 +10,7 @@ state_en: California
 cities_en: [Los Angeles, San Francisco, San Jose, Monterey Park, Arcadia, Fremont]
 title: 加州開鎖｜洛杉磯・舊金山・聖荷西華人鎖匠
 description: 在加州被鎖在門外、要換鎖或配車鑰匙？我們在洛杉磯、聖蓋博谷、舊金山灣區提供國語粵語開鎖服務，加州鎖匠須持BSIS執照。
-h1: 加州開鎖服務 - 洛杉磯、舊金山、聖荷西華人鎖匠
+h1: 加州開鎖服務
 kicker: 洛杉磯・聖蓋博谷・舊金山灣區
 lead: 加州是全美華人最多的州。從蒙特利公園、阿罕布拉到舊金山日落區、聖荷西，我們用國語、粵語上門開鎖、換鎖、配車鑰匙，到場前先報價。
 aka: [洛杉磯開鎖, 舊金山開鎖, 聖荷西開鎖, 加州锁匠, 洛杉矶开锁]
