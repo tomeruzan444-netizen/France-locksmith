@@ -17,6 +17,7 @@ CONFIG = {
     "wechat": "",           # 微信號
     "email": "huarenkaisuo@gmail.com",    # 網站上顯示的電郵
     "form_email": "ben3n4456@gmail.com",  # 所有表單送到這個信箱（不顯示在網站上）
+    "form_alias": "644c71f8c0e6f8c25e293d5dc8e28a21",  # FormSubmit 為上面信箱產生的代碼，避免信箱被爬蟲抓到
     "address": "",          # 刻意留空：網站不顯示實體地址
     "site_url": "https://huarenkaisuo.com",
     "google_verification": "S1JULRL4brwBCXUiI4YZrvPy853_5z00UDD4ziCooNc",  # Google Search Console
@@ -533,12 +534,12 @@ def render_blog_hub(posts):
 
 def qform(path, dark=False):
     """聯絡表單：純HTML，透過 FormSubmit 寄到 CONFIG["form_email"]。第一次提交後需在該信箱點確認連結啟用。"""
-    to = CONFIG.get("form_email") or CONFIG["email"]
+    to = CONFIG.get("form_alias") or CONFIG.get("form_email") or CONFIG["email"]
     if not to:
         return ""
     cls = "qform qform-dark" if dark else "qform"
     return f'''<form class="{cls}" action="https://formsubmit.co/{esc(to)}" method="POST" accept-charset="UTF-8">
-<input type="hidden" name="_subject" value="網站詢問 huarenkaisuo.com">
+<input type="hidden" name="_subject" value="網站詢問 huarenkaisuo.com {esc(path)}">
 <input type="hidden" name="_next" value="{esc(abs_url("/thanks/"))}">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
