@@ -155,7 +155,11 @@ def head(title, desc, path, schema, noindex=False):
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{url}">
 <meta name="theme-color" content="#14202b">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/fraunces-600.woff2" as="font" type="font/woff2" crossorigin>
 <style>{CSS}</style>
 {ld}
@@ -483,7 +487,14 @@ def main():
         shutil.rmtree(OUT)
     (OUT / "fonts").mkdir(parents=True)
     shutil.copy(ROOT / "src" / "fraunces-600.woff2", OUT / "fonts" / "fraunces-600.woff2")
-    shutil.copy(ROOT / "src" / "favicon.svg", OUT / "favicon.svg")
+    for icon in ("favicon.svg", "favicon.ico", "favicon-48.png", "favicon-96.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png"):
+        shutil.copy(ROOT / "src" / icon, OUT / icon)
+    (OUT / "site.webmanifest").write_text(json.dumps({
+        "name": BRAND, "short_name": BRAND, "lang": "zh-Hant", "start_url": "/", "display": "standalone",
+        "background_color": "#f5f0e6", "theme_color": "#14202b",
+        "icons": [{"src": "/icon-192.png", "sizes": "192x192", "type": "image/png"},
+                  {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png"},
+                  {"src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml"}]}, ensure_ascii=False, indent=2), encoding="utf-8")
 
     def write(url, content):
         path = OUT / url.strip("/") / "index.html" if url != "/404" else OUT / "404.html"
