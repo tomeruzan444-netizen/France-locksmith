@@ -18,6 +18,7 @@ CONFIG = {
     "email": "",
     "address": "",
     "site_url": "https://france-locksmith.vercel.app",
+    "indexable": False,     # False = 封鎖搜尋引擎（noindex）。網站準備好上線時改成 True
 }
 BRAND = CONFIG["site_name"] or "中文鎖匠"
 LANG = "zh-Hant-US"
@@ -132,7 +133,7 @@ def head(title, desc, path, schema, noindex=False):
     url = abs_url(path)
     schema = [business_ld()] + schema
     ld = "".join(f'<script type="application/ld+json">{json.dumps(s, ensure_ascii=False)}</script>' for s in schema)
-    robots = "noindex" if noindex else "index,follow,max-image-preview:large,max-snippet:-1"
+    robots = "noindex,nofollow" if (noindex or not CONFIG["indexable"]) else "index,follow,max-image-preview:large,max-snippet:-1"
     return f'''<!doctype html>
 <html lang="{LANG}">
 <head>
@@ -504,7 +505,18 @@ def main():
     (OUT / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "".join(f"<url><loc>{base}{u}</loc></url>\n" for u in urls) + "</urlset>\n", encoding="utf-8")
-    (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {base}/sitemap.xml\n", encoding="utf-8")
+    if CONFIG["indexable"]:
+        (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {base}/sitemap.xml\n", encoding="utf-8")
+    else:
+        # 不用 Disallow：讓搜尋引擎能讀到每頁的 noindex
+        (OUT / "robots.txt").write_text("User-agent: *\nAllow: /\n", encoding="utf-8")
+    import json as _j
+    vc = _j.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
+    hdrs = next(h for h in vc["headers"] if h["source"] == "/(.*)")["headers"]
+    hdrs[:] = [h for h in hdrs if h["key"] != "X-Robots-Tag"]
+    if not CONFIG["indexable"]:
+        hdrs.append({"key": "X-Robots-Tag", "value": "noindex, nofollow"})
+    (ROOT / "vercel.json").write_text(_j.dumps(vc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     llms = [f"# {BRAND}", "", "> 在美國服務華人的鎖匠，國語、粵語都能溝通，24小時上門：住宅開鎖、換鎖、換鎖芯、智能門鎖、汽車開鎖、配車鑰匙、保險箱開鎖、商業換鎖。網站內容為繁體中文。", ""]
     for key, label, _ in CATEGORIES:
         llms.append(f"## {label}")

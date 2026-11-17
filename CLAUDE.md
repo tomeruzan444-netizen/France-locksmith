@@ -79,6 +79,7 @@
 - שדות front matter: `url`, `type` (service / blog / page), `icon`, `category` (בשירותים), `name`, `title`, `description`, `h1`, `kicker`, `lead`, `keyword`, `aka`, `quick`, `steps`, `faq`, `priority`.
 - בלי JavaScript, בלי ספריות. גרפיקה = SVG inline. פונט Fraunces רק לספרות ולאותיות לטיניות, הסינית בפונט המערכת (PingFang TC / Noto Sans TC / Microsoft JhengHei).
 - CONFIG בראש `build.py`: שם, טלפון, WeChat, אימייל, כתובת, דומיין. ריקים = לא מוצגים.
+- `indexable`: כרגע `False` = האתר חסום למנועי חיפוש (meta noindex בכל עמוד + כותרת X-Robots-Tag ב-Vercel). כשהאתר מוכן לעלייה: לשנות ל-`True`, להריץ build ולדחוף.
 - לפני commit: `python3 build.py` חייב לעבור בלי שגיאות ובלי אזהרות.
 
 ## 8. הוספת עמוד

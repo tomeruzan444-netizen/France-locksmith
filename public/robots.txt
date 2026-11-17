@@ -1,4 +1,2 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://france-locksmith.vercel.app/sitemap.xml
