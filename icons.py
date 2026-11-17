@@ -38,4 +38,5 @@ ICONS = {
     "question": '<circle cx="32" cy="32" r="24"/><path d="M24 25a8 8 0 1 1 11 7.4c-2 .9-3 2.4-3 4.6v2"/><circle cx="32" cy="46" r="1.6"/>',
     "people": '<circle cx="24" cy="22" r="8"/><path d="M8 52a16 16 0 0 1 32 0"/><circle cx="44" cy="24" r="6" opacity=".6"/><path d="M40 38a13 13 0 0 1 17 14" opacity=".6"/>',
     "luggage": '<rect x="14" y="18" width="36" height="38" rx="4"/><path d="M24 18v-8h16v8"/><path d="M14 30h36" opacity=".5"/><rect x="26" y="36" width="12" height="8" rx="1.5"/>',
+    "pin": '<path d="M32 58S14 38 14 25a18 18 0 0 1 36 0c0 13-18 33-18 33z"/><circle cx="32" cy="25" r="7"/>',
 }

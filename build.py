@@ -178,6 +178,7 @@ def head(title, desc, path, schema, noindex=False):
 
 
 NAV = {}
+LOCS = []
 
 
 def header():
@@ -185,7 +186,7 @@ def header():
     for key, label, _ in CATEGORIES:
         items = "".join(f'<li><a href="{p["url"]}">{esc(p["name"])}</a></li>' for p in NAV[key])
         menu += f'<div class="mcol"><p class="mcat">{esc(label)}</p><ul>{items}</ul></div>'
-    menu += '<div class="mlinks"><a href="/services/">全部服務</a><a href="/pricing/">收費標準</a><a href="/blog/">開鎖知識</a><a href="/faq/">常見問題</a><a href="/about/">關於我們</a><a href="/contact/">聯繫我們</a></div>'
+    menu += '<div class="mlinks"><a href="/services/">全部服務</a><a href="/locations/">服務地區</a><a href="/pricing/">收費標準</a><a href="/blog/">開鎖知識</a><a href="/faq/">常見問題</a><a href="/about/">關於我們</a><a href="/contact/">聯繫我們</a></div>'
     return f'''<div class="strip"><div class="wrap">全美華人開鎖服務・國語、粵語都可以溝通・24小時</div></div>
 <header class="site-head"><div class="wrap hd">
 <a class="logo" href="/" aria-label="{esc(BRAND)}首頁">{icon_svg("key", "logo-ico")}<span>{esc(BRAND)}</span></a>
@@ -209,7 +210,7 @@ def footer():
 <div class="fbrand"><a class="logo logo-light" href="/">{icon_svg("key", "logo-ico")}<span>{esc(BRAND)}</span></a>
 <p>我們是在美國服務華人的鎖匠，國語、粵語都能溝通。動手之前，先把做法和價錢跟您講清楚。</p>{contact}</div>
 <div class="fcols">{cols}</div>
-</div><div class="wrap fbot"><span>{esc(BRAND)}</span><span class="flinks"><a href="/pricing/">收費標準</a><a href="/blog/">開鎖知識</a><a href="/faq/">常見問題</a><a href="/about/">關於我們</a><a href="/contact/">聯繫我們</a></span></div></footer>
+</div><div class="wrap fbot"><span>{esc(BRAND)}</span><span class="flinks"><a href="/locations/">服務地區</a><a href="/pricing/">收費標準</a><a href="/blog/">開鎖知識</a><a href="/faq/">常見問題</a><a href="/about/">關於我們</a><a href="/contact/">聯繫我們</a></span></div></footer>
 <nav class="mbar" aria-label="快速聯繫">{phone_cta("btn btn-rust")}</nav>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
@@ -259,7 +260,7 @@ CUTS = '<svg class="cuts" viewBox="0 0 1200 24" preserveAspectRatio="none" aria-
 
 def check_links(p, body, by_url):
     links = re.findall(r'href="(/[^"#]*)"', body)
-    if p["type"] in ("service", "blog") and not 2 <= len(links) <= 3:
+    if p["type"] in ("service", "blog", "location") and not 2 <= len(links) <= 3:
         warnings.append(f'{p["url"]}: 正文內部連結 {len(links)} 個（應為2到3個）')
     if len(set(links)) != len(links):
         warnings.append(f'{p["url"]}: 內部連結重複')
@@ -328,6 +329,59 @@ def render_service(p, by_url):
 {faq_html(p["faq"])}
 {related_html(RELATED.get(p["url"], []), "延伸閱讀與相關服務")}
 <section class="band"><div class="wrap band-in"><p>先講清楚做法和價錢，您同意了我們才動手。</p>{phone_cta("btn btn-brass")}</div></section>''' + footer()
+
+
+P1_SERVICES = ["/services/24-hour-emergency-locksmith/", "/services/house-lockout/", "/services/lock-change/",
+               "/services/rekey/", "/services/door-locks/", "/services/smart-lock-installation/",
+               "/services/car-lockout/", "/services/car-keys/", "/services/safe-opening/"]
+
+
+def render_location(p, by_url):
+    body = markdown.Markdown(extensions=["sane_lists", "tables"]).convert(p["body_md"])
+    check_links(p, body, by_url)
+    crumbs = [("首頁", "/"), ("服務地區", "/locations/"), (p["name"], p["url"])]
+    quick = "".join(f'<div><dt>{esc(q["label"])}</dt><dd>{esc(q["value"])}</dd></div>' for q in p["quick"])
+    svc = [by_url[u] for u in P1_SERVICES]
+    svc_html = "".join(f'<li><a class="hub-card" href="{s["url"]}">{icon_svg(s["icon"])}<span><strong>{esc(p["short"])}{esc(s["name"])}</strong><em>{esc(s["lead"])}</em></span></a></li>' for s in svc)
+    schema = [
+        {"@context": "https://schema.org", "@type": "WebPage", "name": p["title"], "description": p["description"],
+         "inLanguage": LANG, "url": abs_url(p["url"])},
+        {"@context": "https://schema.org", "@type": "Service", "name": p["h1"], "serviceType": "開鎖",
+         "description": p["description"], "provider": {"@id": abs_url("/#business")},
+         "areaServed": [{"@type": "State", "name": p["state_en"]}] + [{"@type": "City", "name": c} for c in p.get("cities_en", [])],
+         "availableLanguage": ["zh", "yue"]},
+        breadcrumb_ld(crumbs), faq_ld(p["faq"]),
+    ]
+    p["chars"] = cjk_len(body + json.dumps(p["faq"], ensure_ascii=False))
+    if p["chars"] < 900:
+        warnings.append(f'{p["url"]}: 只有 {p["chars"]} 個中文字（至少900）')
+    return head(p["title"], p["description"], p["url"], schema) + header() + f'''
+<section class="svc-hero"><div class="wrap sh">
+<div class="sh-txt">{crumbs_html(crumbs)}
+<p class="kicker">{esc(p["kicker"])}</p>
+<h1>{esc(p["h1"])}</h1>
+{qform(p["url"])}
+<p class="lead">{esc(p["lead"])}</p>
+<div class="ctas">{phone_cta()}<a class="btn btn-ghost" href="#area-services">{esc(p["short"])}開鎖服務項目</a></div>
+</div>
+<div class="sh-art">{plate_svg(p["url"], p["icon"], p["name"] + "示意圖")}</div>
+</div>{CUTS}</section>
+<div class="wrap svc-grid">
+<article class="prose">{body}</article>
+<aside class="side"><div class="tag"><span class="hole" aria-hidden="true"></span><p class="tag-t">重點速覽</p><dl>{quick}</dl>{aka_html(p)}</div>
+<div class="side-cta"><p>人在{esc(p["short"])}被鎖在外面？用國語或粵語打給我們，先報價再出發。</p>{phone_cta()}</div></aside>
+</div>
+<section class="related" id="area-services"><div class="wrap"><h2>{esc(p["short"])}開鎖服務項目</h2><ul class="hub-l">{svc_html}</ul></div></section>
+{faq_html(p["faq"])}
+<section class="band"><div class="wrap band-in"><p>{esc(p["short"])}開鎖，先講清楚做法和價錢，您同意了我們才動手。</p>{phone_cta("btn btn-brass")}</div></section>''' + footer()
+
+
+def render_locations_hub(locs):
+    items = "".join(f'<li><a class="hub-card" href="{p["url"]}">{icon_svg(p["icon"])}<span><strong>{esc(p["h1"])}</strong><em>{esc(p["lead"])}</em></span></a></li>' for p in locs)
+    crumbs = [("首頁", "/"), ("服務地區", "/locations/")]
+    return head("服務地區｜加州、紐約、德州、華盛頓州、麻州開鎖", "我們在美國華人最多的州提供中文開鎖服務：加州、紐約、德州、華盛頓州和麻州，國語粵語溝通，24小時上門開鎖換鎖。", "/locations/", [breadcrumb_ld(crumbs)]) + header() + f'''
+<section class="svc-hero hub-hero"><div class="wrap">{crumbs_html(crumbs)}<h1>服務地區</h1>{qform("/locations/")}<p class="lead">我們從華人最多的州開始：加州、紐約、德州、華盛頓州和麻州。每一州的房子、租屋規定和常見的鎖都不太一樣，所以每州都有一頁專門說明。</p></div></section>
+<div class="wrap hub"><ul class="hub-l">{items}</ul></div>''' + footer()
 
 
 def render_blog(p, by_url):
@@ -449,6 +503,7 @@ def render_home(services, posts):
 <li><span class="sn">03</span><h3>核對身分再開門</h3><p>先看證件和地址證明，然後選最不傷鎖的方法。</p></li>
 <li><span class="sn">04</span><h3>當面測試</h3><p>每把鑰匙、每道鎖都當著您的面試過，您確認沒問題我們才走。</p></li>
 </ol></div></section>
+<section class="cats"><div class="wrap"><h2 class="sec-t">服務地區</h2><ul class="hub-l">{"".join(f'<li><a class="hub-card" href="{q["url"]}">{icon_svg(q["icon"])}<span><strong>{esc(q["h1"])}</strong><em>{esc(q["lead"])}</em></span></a></li>' for q in LOCS)}</ul><p class="more"><a href="/locations/">查看所有服務地區</a></p></div></section>
 <section class="cats"><div class="wrap"><h2 class="sec-t">開鎖知識</h2><ul class="hub-l">{blog}</ul><p class="more"><a href="/blog/">看更多開鎖與防盜知識</a></p></div></section>
 {faq_html(faq)}
 <section class="band"><div class="wrap band-in"><p>現在就被鎖在門外？先從這裡開始。</p><a class="btn btn-brass" href="/services/24-hour-emergency-locksmith/">24小時緊急開鎖</a></div></section>''' + footer()
@@ -535,11 +590,13 @@ def lint(p):
 def main():
     pages = load_pages()
     by_url = {p["url"]: p for p in pages}
-    for u in ("/", "/services/", "/blog/"):
+    for u in ("/", "/services/", "/blog/", "/locations/"):
         by_url[u] = {"url": u}
     services = [p for p in pages if p["type"] == "service"]
     posts = sorted([p for p in pages if p["type"] == "blog"], key=lambda p: p.get("order", 99))
     others = [p for p in pages if p["type"] == "page"]
+    locs = sorted([p for p in pages if p["type"] == "location"], key=lambda p: p.get("order", 99))
+    LOCS[:] = locs
     for key, *_ in CATEGORIES:
         NAV[key] = sorted([p for p in services if p["category"] == key], key=lambda p: p.get("order", 99))
     def links_of(q):
@@ -581,6 +638,9 @@ def main():
     write("/", render_home(services, posts))
     write("/services/", render_services_hub())
     write("/blog/", render_blog_hub(posts))
+    write("/locations/", render_locations_hub(locs))
+    for p in locs:
+        write(p["url"], render_location(p, by_url))
     write("/404", render_404())
     write("/thanks/", render_thanks())
     for p in services:
@@ -594,7 +654,7 @@ def main():
         sys.exit(1)
 
     base = CONFIG["site_url"].rstrip("/")
-    urls = ["/", "/services/", "/blog/"] + [p["url"] for p in services + posts + others]
+    urls = ["/", "/services/", "/locations/", "/blog/"] + [p["url"] for p in services + locs + posts + others]
     (OUT / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "".join(f"<url><loc>{base}{u}</loc><lastmod>{LASTMOD}</lastmod></url>\n" for u in urls) + "</urlset>\n", encoding="utf-8")
@@ -620,6 +680,9 @@ def main():
         llms.append(f"## {label}")
         llms += [f'- [{p["h1"]}]({base}{p["url"]}): {p["description"]}' for p in NAV[key]]
         llms.append("")
+    llms.append("## 服務地區")
+    llms += [f'- [{p["h1"]}]({base}{p["url"]}): {p["description"]}' for p in locs]
+    llms.append("")
     llms.append("## 開鎖知識")
     llms += [f'- [{p["h1"]}]({base}{p["url"]}): {p["description"]}' for p in posts]
     llms.append("")
@@ -627,8 +690,8 @@ def main():
     llms += [f'- [{p["h1"]}]({base}{p["url"]}): {p["description"]}' for p in others]
     (OUT / "llms.txt").write_text("\n".join(llms) + "\n", encoding="utf-8")
 
-    total = sum(p.get("chars", 0) for p in services + posts)
-    print(f"完成：{len(services)} 個服務頁、{len(posts)} 篇文章、{len(others)} 個其他頁面，共 {total} 個中文字。")
+    total = sum(p.get("chars", 0) for p in services + posts + locs)
+    print(f"完成：{len(services)} 個服務頁、{len(locs)} 個地區頁、{len(posts)} 篇文章、{len(others)} 個其他頁面，共 {total} 個中文字。")
     if warnings:
         print("警告：\n  " + "\n  ".join(warnings))
 
