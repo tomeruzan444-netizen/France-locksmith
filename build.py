@@ -396,7 +396,7 @@ def render_page(p, by_url):
 <div class="sh-txt">{crumbs_html(crumbs)}
 <p class="kicker">{esc(p["kicker"])}</p>
 <h1>{esc(p["h1"])}</h1>
-<p class="lead">{esc(p["lead"])}</p>
+{('<div class="cbox-top">' + contact_block() + '</div>') if p.get("contact_top") else ""}<p class="lead">{esc(p["lead"])}</p>
 </div>
 <div class="sh-art">{plate_svg(p["url"], p["icon"], p["name"] + "示意圖")}</div>
 </div>{CUTS}</section>

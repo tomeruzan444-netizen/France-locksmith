@@ -219,3 +219,9 @@ p{margin:0 0 1em}
 .meta{font-size:.88rem;color:var(--muted);margin-top:14px}
 .related{padding:56px 0;border-top:1px solid var(--line)}
 .related h2{margin-bottom:22px}
+
+.cbox-top{margin:18px 0 20px}
+.cbox-top .cbox{margin:0;font-size:1.15rem;padding:24px 26px;box-shadow:0 10px 28px rgba(0,0,0,.18)}
+.cbox-top .cbox a{font-weight:700;font-family:inherit}
+.cbox-top .cbox strong{min-width:3em}
+@media (max-width:760px){.sh:has(.cbox-top) .sh-art{display:none}.cbox-top .cbox{font-size:1.05rem;padding:20px}}
