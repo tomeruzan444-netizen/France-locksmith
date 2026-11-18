@@ -191,7 +191,7 @@ def header():
     menu += '<div class="mlinks"><a href="/services/">全部服務</a><a href="/locations/">服務地區</a><a href="/pricing/">收費標準</a><a href="/blog/">開鎖知識</a><a href="/faq/">常見問題</a><a href="/about/">關於我們</a><a href="/contact/">聯繫我們</a></div>'
     return f'''<div class="strip"><div class="wrap">全美華人開鎖服務・國語、粵語都可以溝通・24小時</div></div>
 <header class="site-head"><div class="wrap hd">
-<a class="logo" href="/" aria-label="{esc(BRAND)}首頁">{icon_svg("key", "logo-ico")}<span>{esc(BRAND)}</span></a>
+<a class="logo" href="/" aria-label="{esc(BRAND)}首頁">{icon_svg("key", "logo-ico")}<span class="logo-txt"><span>{esc(BRAND)}</span><small class="logo-sub">美國華人鎖匠・全美上門</small></span></a>
 <details class="nav"><summary>服務項目</summary><div class="mega">{menu}</div></details>
 {phone_cta("btn btn-rust hd-cta")}
 </div></header>
@@ -472,7 +472,7 @@ def render_home(services, posts):
     top_posts = [p for p in posts if p.get("priority") in ("P1", "P2")][:4]
     blog = "".join(f'<li><a class="hub-card" href="{p["url"]}">{icon_svg(p["icon"])}<span><strong>{esc(p["h1"])}</strong><em>{esc(p["lead"])}</em></span></a></li>' for p in top_posts)
     faq = [
-        {"q": "你們在美國哪些地方提供開鎖服務？", "a": "我們在全美各地提供服務。打電話時告訴我們地址，我們會先確認多久能到，再決定要不要出發。"},
+        {"q": "你們只在美國服務嗎？", "a": "對，我們只在美國服務，全美各州都可以叫我們。加拿大、台灣、香港和中國大陸我們沒有服務，人在這些地方的話，請找當地的鎖匠。打電話時告訴我們地址，我們會先確認多久能到，再決定要不要出發。"},
         {"q": "可以用國語或粵語溝通嗎？", "a": "可以。電話裡和到現場都能用國語、粵語溝通，價錢、做法和注意事項都用中文講清楚，不用擔心英文說不好。"},
         {"q": "開鎖多少錢？會不會到了現場才加價？", "a": "我們在電話裡就報價。到了現場如果發現跟描述不一樣，例如是高安全鎖芯，會先跟您說明，您同意了才繼續。"},
         {"q": "开锁需要出示什么证件？", "a": "需要。開門前我們會核對身分證件，以及能證明您住在這裡或車是您的文件，例如租約、水電帳單或車輛登記。這是為了保護您。"},
